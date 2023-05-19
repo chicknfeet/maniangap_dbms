@@ -1,0 +1,58 @@
+DROP DATABASE longtest;
+CREATE DATABASE longtest;
+
+USE longtest;
+
+CREATE TABLE student(
+    student_no int PRIMARY KEY AUTO_INCREMENT,
+    student_fname varchar(15),
+    student_lname varchar(15),
+    major varchar(15),
+    gender enum("F","M"),
+    house_address varchar(15)
+);
+
+CREATE TABLE subject(
+    subject_code int PRIMARY KEY AUTO_INCREMENT,
+    subject_descr varchar(15)
+);
+
+CREATE TABLE grade(
+    student_no int,
+    subject_code int,
+    grade int
+);
+
+INSERT INTO student VALUES
+("S-101", "ANA", "CRUZ", "ECE", "F", "Malolos, Bulacan"),
+("S-102", "HAZEL", "PONCE", "COE", "F", "Plaridel, Bulacan"),
+("S-103", "CRISTOV", "CONCIO", "ECE", "M", "Malolos, Bulacan"),
+("S-104", "ARIS", "CLAVIO", "COE", "M", "Pulilan, Bulacan"),
+("S-105", "HONEY", "PELAYO", "COE", "F", "Plaridel, Bulacan"),
+("S-106", "CARRIE", "ABAO", "ECE", "F", "Pulilan, Bulacan");
+
+INSERT INTO grade VALUES
+("S-101", "Chem 123", "2.00"),
+("S-101", "Math 122", "1.00"),
+("S-101", "Math 123", "1.50"),
+("S-102", "Chem 123", "1.75"),
+("S-102", "Math 122", "1.25"),
+("S-102", "Math 123", "1.50"),
+("S-103", "Chem 123", "2.00"),
+("S-103", "Math 122", "1.75"),
+("S-103", "Math 123", "1.25"),
+("S-104", "Chem 123", "1.25"),
+("S-104", "Math 122", "2.25"),
+("S-104", "Math 123", "2.50"),
+("S-105", "Chem 123", "1.00"),
+("S-105", "Math 122", "1.25"),
+("S-105", "Math 123", "2.50"),
+("S-106", "Chem 123", "100"),
+("S-106", "Math 122", "1.50"),
+("S-106", "Math 123", "1.70");
+ 
+INSERT INTO subject VALUES
+("Chem 123", "Chemistry"),
+("Math 123","Trigonometry"),
+("Math 123", "Algebra");
+
