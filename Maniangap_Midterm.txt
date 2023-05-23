@@ -1,0 +1,28 @@
+DROP DATABASE midterm;
+CREATE DATABASE midterm;
+
+USE midterm;
+
+CREATE TABLE StudentInfo(
+    studno int PRIMARY KEY AUTO_INCREMENT,
+    studfname varchar(50),
+    studlname varchar(50),
+    major varchar(50),
+    gender ENUM('M','F') DEFAULT 'M',
+    homeaddress varchar(50)
+);
+
+CREATE TABLE Subject(
+    studno int,
+    subjcode int PRIMARY KEY AUTO_INCREMENT,
+    subjdescr varchar(50),
+    CONSTRAINT FKStudentInfo FOREIGN KEY(studno)
+    REFERENCES StudentInfo (studno)
+);
+
+CREATE TABLE Grade(
+    subjcode int,
+    grade int,
+   	CONSTRAINT FKSubject FOREIGN KEY(subjcode)
+    REFERENCES Subject (subjcode)
+);
